@@ -1,10 +1,11 @@
-package com.coderzheaven.tutorialprojects.view
+package com.coderzheaven.tutorialprojects.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.coderzheaven.tutorialprojects.R
 import com.coderzheaven.tutorialprojects.models.User
+import com.coderzheaven.tutorialprojects.view_holder.UserViewHolder
 
 class ListAdapter(private val list: List<User>) : RecyclerView.Adapter<UserViewHolder>() {
 
@@ -15,8 +16,9 @@ class ListAdapter(private val list: List<User>) : RecyclerView.Adapter<UserViewH
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        val name: String = list[position].name
-        holder.textView.text = name
+        val user: User = list[position]
+        holder.tvUserName.text = user.name
+        holder.tvUserEmail.text = user.email
     }
 
     override fun getItemCount(): Int = list.size

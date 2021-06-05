@@ -1,6 +1,6 @@
 package com.coderzheaven.tutorialprojects.repo
 
-import com.coderzheaven.tutorialprojects.utils.Constants.Companion.BASE_URL
+import com.coderzheaven.tutorialprojects.constants.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

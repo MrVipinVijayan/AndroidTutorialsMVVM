@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp">
 
-    <LinearLayout
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:foregroundGravity="center"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btnLoad"
+        android:layout_width="match_parent"
+        android:text="Get Users"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvErrorMessage"
+        android:padding="10dp"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:orientation="vertical"
-        android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_dark" />
 
-        <ProgressBar
-            android:id="@+id/progress"
-            android:layout_width="30dp"
-            android:layout_height="30dp" />
+</LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/btnLoad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.coderzheaven.tutorialprojects.models.User
+import com.coderzheaven.tutorialprojects.view_model.UsersViewModel
 import junit.framework.TestCase
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -34,7 +35,7 @@ class UsersViewModelTest : TestCase() {
         super.setUp()
         val applicationMock = Mockito.mock(Application::class.java)
         usersViewModel = UsersViewModel(applicationMock)
-        usersViewModel.users.observeForever { usersObserver }
+        usersViewModel.userList.observeForever { usersObserver }
         mockWebServer.start()
     }
 
@@ -64,7 +65,7 @@ class UsersViewModelTest : TestCase() {
 
     @After
     fun teardown() {
-        usersViewModel.users.removeObserver{ usersObserver }
+        usersViewModel.userList.removeObserver{ usersObserver }
         mockWebServer.shutdown()
     }
 

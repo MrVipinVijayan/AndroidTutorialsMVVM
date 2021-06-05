@@ -1,4 +1,4 @@
-package com.coderzheaven.tutorialprojects.view
+package com.coderzheaven.tutorialprojects.view_holder
 
 import android.view.View
 import android.widget.TextView
@@ -7,6 +7,7 @@ import com.coderzheaven.tutorialprojects.R
 
 class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-    val textView: TextView = view.findViewById(R.id.list_title)
+    val tvUserName: TextView = view.findViewById(R.id.list_name)
+    val tvUserEmail: TextView = view.findViewById(R.id.list_email)
 
 }

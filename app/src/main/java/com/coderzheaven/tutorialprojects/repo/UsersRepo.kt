@@ -11,27 +11,35 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UsersRepo(callback: UsersCallback?) : Callback<List<User>> {
+class UsersRepo(callback: UsersCallback) : Callback<List<User>> {
 
-    private val usersCallback: UsersCallback? = callback
+    private val usersCallback: UsersCallback = callback
+    private val userError = UserError(UNKNOWN_ERROR_CODE, UNKNOWN_ERROR)
 
     fun getAllUsers() {
+        usersCallback.onLoading(true)
         val request = RetrofitUtil.buildService(UsersInterface::class.java)
         val call = request.getUsers()
         call.enqueue(this)
     }
 
     override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
-        if (response.isSuccessful) {
-            response.body()?.let { usersCallback?.onSuccess(it) }
+        usersCallback.onLoading(false)
+        if (null == response.body()) {
+            usersCallback.onFailed(userError)
             return
         }
-        val userError = UserError(UNKNOWN_ERROR_CODE, UNKNOWN_ERROR)
-        usersCallback?.onFailed(userError)
+        if (response.isSuccessful) {
+            usersCallback.onSuccess(response.body()!!)
+            return
+        }
+        usersCallback.onFailed(userError)
     }
 
     override fun onFailure(call: Call<List<User>>, t: Throwable) {
         val userError = UserError(USER_LOAD_FAILURE, t.message.toString())
-        usersCallback?.onFailed(userError)
+        usersCallback.onFailed(userError)
+        usersCallback.onLoading(false)
     }
+
 }

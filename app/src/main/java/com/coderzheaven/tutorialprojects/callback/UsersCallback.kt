@@ -7,5 +7,6 @@ interface UsersCallback {
 
     fun onSuccess(users: List<User>)
     fun onFailed(userError: UserError)
+    fun onLoading(loading: Boolean)
 
 }

@@ -9,6 +9,7 @@ import com.coderzheaven.tutorialprojects.models.User
 import com.coderzheaven.tutorialprojects.models.UserError
 import com.coderzheaven.tutorialprojects.repo.UsersRepo
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class UsersViewModel(application: Application) : AndroidViewModel(application), UsersCallback {
@@ -18,20 +19,24 @@ class UsersViewModel(application: Application) : AndroidViewModel(application), 
     var userLoading: MutableLiveData<Boolean> = MutableLiveData()
 
     fun getUsers() {
+        if (userLoading.value == true) {
+            return
+        }
         viewModelScope.launch(Dispatchers.IO) {
-            userLoading.postValue(true)
             UsersRepo(this@UsersViewModel).getAllUsers()
         }
     }
 
     override fun onSuccess(usersList: List<User>) {
         userList.postValue(usersList)
-        userLoading.postValue(false)
     }
 
     override fun onFailed(error: UserError) {
-        userLoading.postValue(false)
         userError.postValue(error)
+    }
+
+    override fun onLoading(loading: Boolean) {
+        userLoading.postValue(loading)
     }
 
 }

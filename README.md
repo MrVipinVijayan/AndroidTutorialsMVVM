@@ -14,5 +14,4 @@ Concept included
 Checkout the written tutorial here.
 https://www.coderzheaven.com/2021/06/06/mvvm-in-android-viewmodels-viewmodelscope-retrofit-all-with-a-simple-example/
 
-
-![alt text](https://www.coderzheaven.com/wp-content/uploads/2021/06/Screenshot_1622949415.png)
+<img src="https://www.coderzheaven.com/wp-content/uploads/2021/06/Screenshot_1622949415.png" width="100" height="100">

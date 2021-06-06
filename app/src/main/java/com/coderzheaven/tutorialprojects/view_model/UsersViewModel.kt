@@ -22,7 +22,7 @@ class UsersViewModel(application: Application) : AndroidViewModel(application), 
         if (userLoading.value == true) {
             return
         }
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.Default) {
             UsersRepo(this@UsersViewModel).getAllUsers()
         }
     }

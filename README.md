@@ -16,5 +16,3 @@ Checkout the written tutorial here.
 https://www.coderzheaven.com/2021/06/06/mvvm-in-android-viewmodels-viewmodelscope-retrofit-all-with-a-simple-example/
 
 <img src="https://www.coderzheaven.com/wp-content/uploads/2021/06/Screenshot_1622949415.png" width="480" height="800">
-
-Visit <a href="https://coderzheaven.com">CoderzHeaven</a> for more tutorials.

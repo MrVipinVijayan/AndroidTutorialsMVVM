@@ -9,6 +9,7 @@ import com.coderzheaven.tutorialprojects.models.UserError
 import com.coderzheaven.tutorialprojects.repo.user_repo.UserRepoHelper
 import com.coderzheaven.tutorialprojects.models.AppServiceResponse
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
@@ -22,7 +23,7 @@ class UsersViewModel(application: Application, private val userRepoHelper: UserR
     }
 
     fun fetchUsers() {
-        viewModelScope.launch {
+        viewModelScope.async {
             apiServiceResponse.postValue(AppServiceResponse.loading())
             try {
                 val list = userRepoHelper.getAllUsers()

@@ -10,7 +10,8 @@ Concept included
 2. RecyclerView
 3. ViewModel
 4. Retrofit
-5. ViewModelScope and more.
+5. ViewModelScope
+6. ViewModel unit testing.
 
 Checkout the written tutorial here.
 https://www.coderzheaven.com/2021/06/06/mvvm-in-android-viewmodels-viewmodelscope-retrofit-all-with-a-simple-example/

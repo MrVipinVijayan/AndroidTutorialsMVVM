@@ -8,6 +8,6 @@ import retrofit2.http.GET
 interface UsersInterface {
 
     @GET(USERS)
-    fun getUsers(): Call<List<User>>
+    suspend fun getUsers(): List<User>
 
 }

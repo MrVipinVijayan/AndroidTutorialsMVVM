@@ -1,5 +1,6 @@
 package com.coderzheaven.tutorialprojects.repo
 
+import com.coderzheaven.tutorialprojects.`interface`.UsersInterface
 import com.coderzheaven.tutorialprojects.constants.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -19,6 +20,10 @@ class RetrofitUtil {
 
         fun <T> buildService(service: Class<T>): T {
             return retrofit.create(service)
+        }
+
+        fun usersInterface(): UsersInterface {
+            return buildService(UsersInterface::class.java)
         }
 
     }

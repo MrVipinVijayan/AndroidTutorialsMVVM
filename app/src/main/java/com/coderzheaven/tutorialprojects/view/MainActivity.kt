@@ -13,7 +13,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.coderzheaven.tutorialprojects.R
 import com.coderzheaven.tutorialprojects.adapter.ListAdapter
 import com.coderzheaven.tutorialprojects.models.User
-import com.coderzheaven.tutorialprojects.models.UserError
+import com.coderzheaven.tutorialprojects.repo.RetrofitUtil
+import com.coderzheaven.tutorialprojects.repo.user_repo.UserRepoImplementation
+import com.coderzheaven.tutorialprojects.models.AppServiceResponse
+import com.coderzheaven.tutorialprojects.models.Status
+import com.coderzheaven.tutorialprojects.view_model.UserViewModelFactory
 import com.coderzheaven.tutorialprojects.view_model.UsersViewModel
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -44,23 +48,28 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setListeners() {
-        viewModel = ViewModelProvider(this).get(UsersViewModel::class.java)
-        viewModel.userList.observe(this, Observer(onUsersListReceived()))
-        viewModel.userError.observe(this, Observer(onUserError()))
-        viewModel.userLoading.observe(this, Observer(onLoading()))
-        viewModel.getUsers()
+        val userViewModelFactory = UserViewModelFactory(
+            application,
+            UserRepoImplementation(RetrofitUtil.usersInterface())
+        )
+        viewModel = ViewModelProvider(this, userViewModelFactory).get(UsersViewModel::class.java)
+        viewModel.apiServiceResponse.observe(this, Observer(onResponseReceived()))
     }
 
-    private fun onUsersListReceived() = { users: List<User> ->
-        setList(users)
-    }
-
-    private fun onLoading() = { loading: Boolean ->
-        showLoading(loading)
-    }
-
-    private fun onUserError() = { userError: UserError ->
-        showErrorMessage(userError.message)
+    private fun onResponseReceived() = { users: AppServiceResponse<List<User>> ->
+        when (users.status) {
+            Status.LOADING -> {
+                showLoading(true)
+            }
+            Status.ERROR -> {
+                showErrorMessage(users.message)
+                showLoading(false)
+            }
+            Status.SUCCESS -> {
+                setList(users.data!!)
+                showLoading(false)
+            }
+        }
     }
 
     private fun showErrorMessage(message: String?) {
@@ -85,7 +94,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         if (v!!.id == R.id.btnLoad) {
             showErrorMessage(null)
-            viewModel.getUsers()
+            viewModel.fetchUsers()
         }
     }
 }

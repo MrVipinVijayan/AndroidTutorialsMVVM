@@ -13,7 +13,7 @@ Concept included
 5. ViewModelScope
 6. Coroutines
 7. DataBinding
-8. ViewModel unit testing.
+8. Unit testing.
 
 Checkout the written tutorial here.
 https://www.coderzheaven.com/2021/06/06/mvvm-in-android-viewmodels-viewmodelscope-retrofit-all-with-a-simple-example/

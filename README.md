@@ -19,6 +19,6 @@ Checkout the written tutorial here.
 https://www.coderzheaven.com/2021/06/06/mvvm-in-android-viewmodels-viewmodelscope-retrofit-all-with-a-simple-example/
 
 <video width="320" height="240" controls>
-  <source src="https://github.com/MrVipinVijayan/AndroidTutorialsMVVM/blob/main/screenshots/mvvm.webm?raw=true" type="video/webm">
+  <source src="https://github.com/MrVipinVijayan/AndroidTutorialsMVVM/blob/main/screenshots/mvvm.mp4?raw=true" type="video/mp4">
 Your browser does not support the video tag.
 </video>

@@ -18,4 +18,4 @@ Concept included
 Checkout the written tutorial here.
 https://www.coderzheaven.com/2021/06/06/mvvm-in-android-viewmodels-viewmodelscope-retrofit-all-with-a-simple-example/
 
-<img src="https://github.com/MrVipinVijayan/AndroidTutorialsMVVM/blob/main/screenshots/Screenshot_1623879503.png?raw=true" width="460" height="800" />
+<img src="https://github.com/MrVipinVijayan/AndroidTutorialsMVVM/blob/main/screenshots/Screenshot_1623879503.png?raw=true" width="440" height="800" />

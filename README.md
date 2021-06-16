@@ -18,7 +18,9 @@ Concept included
 Checkout the written tutorial here.
 https://www.coderzheaven.com/2021/06/06/mvvm-in-android-viewmodels-viewmodelscope-retrofit-all-with-a-simple-example/
 
-<video width="320" height="240" controls>
-  <source src="https://github.com/MrVipinVijayan/AndroidTutorialsMVVM/blob/main/screenshots/mvvm.webm?raw=true" type="video/webm">
+<video width="480" height="800" controls>
+  <source src="https://github.com/MrVipinVijayan/AndroidTutorialsMVVM/blob/main/screenshots/mvvm.mp4?raw=true" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+
+[![Fibonacci RMI Java EE](http://img.youtube.com/vi/nX_inqaAzOI/0.jpg)](https://www.youtube.com/watch?v=nX_inqaAzOI&feature=youtu.be&hd=1 "RMI Fibonacci Java")

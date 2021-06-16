@@ -3,9 +3,10 @@ package com.coderzheaven.tutorialprojects.view.utils
 import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
+import com.coderzheaven.tutorialprojects.constants.Constants.Companion.UNKNOWN_ERROR
+import com.coderzheaven.tutorialprojects.models.AppServiceResponse
 import com.coderzheaven.tutorialprojects.models.User
 import com.coderzheaven.tutorialprojects.repo.user_repo.UserRepoHelper
-import com.coderzheaven.tutorialprojects.models.AppServiceResponse
 import com.coderzheaven.tutorialprojects.view_model.UsersViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.After
@@ -57,7 +58,7 @@ class UsersApiTest {
     fun shouldReturnErrorWhenThereIsException() {
         val applicationMock = mock(Application::class.java)
         testCoroutineRule.runBlockingTest {
-            val errorMessage = "Error Occurred"
+            val errorMessage = UNKNOWN_ERROR
             doThrow(RuntimeException(errorMessage))
                 .`when`(userRepoHelper)
                 .getAllUsers()

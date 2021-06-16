@@ -8,7 +8,7 @@ class Constants {
         const val USERS = "users"
 
         // Errors
-        const val UNKNOWN_ERROR = "Unknown Error"
+        const val UNKNOWN_ERROR = "Fetching users failed"
         const val UNKNOWN_ERROR_CODE = 100
         const val USER_LOAD_FAILURE = 101
 

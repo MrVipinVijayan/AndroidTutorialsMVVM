@@ -1,4 +1,4 @@
-package com.coderzheaven.tutorialprojects.repo
+package com.coderzheaven.tutorialprojects.repo.retrofit_util
 
 import com.coderzheaven.tutorialprojects.`interface`.UsersInterface
 import com.coderzheaven.tutorialprojects.constants.Constants.Companion.BASE_URL

@@ -12,7 +12,7 @@ data class AppServiceResponse<out T>(
             return AppServiceResponse(Status.SUCCESS, data, null)
         }
 
-        fun <T> error(msg: String, data: T?): AppServiceResponse<T> {
+        fun <T> error(msg: String?, data: T?): AppServiceResponse<T> {
             return AppServiceResponse(Status.ERROR, data, msg)
         }
 
